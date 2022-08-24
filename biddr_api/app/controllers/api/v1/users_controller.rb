@@ -2,6 +2,7 @@ class Api::V1::UsersController < Api::ApplicationController
 
 
   def current
+    puts current_user
       render json: current_user
   end
 

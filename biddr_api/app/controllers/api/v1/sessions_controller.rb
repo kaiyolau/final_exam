@@ -1,6 +1,7 @@
 class Api::V1::SessionsController < Api::ApplicationController
 
   def create
+      puts "something created"
       user = User.find_by(email: params[:email])
 
       if user&.authenticate(params[:password])

@@ -8,8 +8,9 @@ import NavBar from './components/NavBar';
 import NewAuctionPage from './components/NewAuctionPage';
 import { User } from './requests';
 import SignInPage from './components/SignInPage';
-// import AuthRoute from './components/AuthRoute';
+import AuthRoute from './components/AuthRoute';
 import SignUpPage from './components/SignUpPage';
+import WelcomePage from './components/WelcomePage';
 
 
 export default function App() {
@@ -36,8 +37,9 @@ export default function App() {
 
     return (
       <BrowserRouter>
-        <NavBar/>
+        <NavBar currentUser={user} onSignOut={ onSignOut }/>
         <Switch>
+          <Route exact path='/' component={WelcomePage} />
           <Route exact path='/sign_in'
           render={(routeProps) => <SignInPage {...routeProps} onSignIn={getCurrentUser} />}
           >
@@ -47,7 +49,7 @@ export default function App() {
           ></Route>
           <Route exact path='/items' component={AuctionIndexPage}/>
           <Route exact path='/items/new' component={NewAuctionPage}/>
-          {/* <AuthRoute isAuthenticated={!!user} exact path='/items/new' component={NewAuctionPage} /> */}
+          <AuthRoute isAuthenticated={!!user} exact path='/items/new' component={NewAuctionPage} />
           <Route exact path='/items/:id' component={AuctionShowPage}></Route>
         </Switch>
       </BrowserRouter>

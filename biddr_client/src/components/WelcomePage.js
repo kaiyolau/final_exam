@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-export default function WelcomePage() {
-
-
-    return(
+const WelcomePage = () => {
+    return (
         <>
-            <div></div>
-            <h1>Welcome Page</h1>
+            <h1>Yo, This is home page</h1>
         </>
     )
 }
+
+export default WelcomePage;
